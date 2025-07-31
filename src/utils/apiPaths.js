@@ -11,10 +11,7 @@
 
 
 
-<<<<<<< HEAD
-export const BASE_URL = 'https://expense-tracker-backend-v03k.onrender.com/api';
-=======
-// export const BASE_URL = 'http://localhost:5000/api';
+
 
 // export const API = {
 //   REGISTER: `${BASE_URL}/auth/register`,
@@ -39,12 +36,11 @@ export const BASE_URL = 'https://expense-tracker-backend-v03k.onrender.com/api';
 
 
 
-const isDev = import.meta.env.MODE === 'development';
 
-export const BASE_URL = isDev
-  ? '/api' // Local: proxy handles this
-  : 'https://expense-tracker-backend-v03k.onrender/api.com'; // 🔁 your live backend URL
->>>>>>> a70012a (Ensure _redirects included in dist for Render)
+
+export const BASE_URL = 'https://expense-tracker-backend-v03k.onrender.com/api';
+
+
 
 export const API = {
   REGISTER: `${BASE_URL}/auth/register`,
