@@ -11,7 +11,7 @@
 
 
 
-export const BASE_URL = 'https://expense-tracker-backend-v03k.onrender.com';
+export const BASE_URL = 'https://expense-tracker-backend-v03k.onrender.com/api';
 
 export const API = {
   REGISTER: `${BASE_URL}/auth/register`,
