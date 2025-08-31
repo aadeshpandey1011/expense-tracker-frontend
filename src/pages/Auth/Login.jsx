@@ -169,12 +169,16 @@ const Login = () => {
 
   const handleSubmit = async e => {
   e.preventDefault();
+  setError('');
 
   try {
     const res = await fetch(API.LOGIN, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
     });
 
     const data = await res.json();
@@ -184,14 +188,11 @@ const Login = () => {
       return;
     }
 
+    // Save token + user
     localStorage.setItem('token', data.token);
+    localStorage.setItem('users', JSON.stringify(data.user));
 
-    // Decode token and save user
-    const decoded = JSON.parse(atob(data.token.split('.')[1]));
-    localStorage.setItem('users', JSON.stringify(decoded.user)); // { _id, fullName, email }
-    console.log("Decoded Token:", decoded);
-    console.log(localStorage.getItem('users'));  // Should NOT be null
-
+    console.log("User stored in localStorage:", data.user);
 
     navigate('/dashboard');
   } catch (err) {
@@ -199,6 +200,7 @@ const Login = () => {
     console.error(err);
   }
 };
+
 
 
   return (
