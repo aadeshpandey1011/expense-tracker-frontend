@@ -138,7 +138,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const incomeRes = await fetch('/api/income', {
+        const incomeRes = await fetch('https://expense-tracker-backend-v03k.onrender.com/api/income', {
           headers: {
             'x-auth-token': token,
             'Content-Type': 'application/json'
@@ -146,7 +146,7 @@ const Home = () => {
         });
         const incomeData = await incomeRes.json();
 
-        const expenseRes = await fetch('/api/expense', {
+        const expenseRes = await fetch('https://expense-tracker-backend-v03k.onrender.com/api/expense', {
           headers: {
             'x-auth-token': token,
             'Content-Type': 'application/json'
